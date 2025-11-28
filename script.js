@@ -1,4 +1,5 @@
+const name = "Rohit Sharma"
 function donkey() {
-    document.getElementById("name").innerHTML = "Rohit Sharma";
+    document.getElementById("name").innerHTML = name;
 }
 
