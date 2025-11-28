@@ -1,4 +1,4 @@
-
 function donkey() {
-    alert('Hello World');
+    document.getElementById("name").innerHTML = "Rohit Sharma";
 }
+
