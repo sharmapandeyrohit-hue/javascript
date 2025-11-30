@@ -4,6 +4,6 @@ const person = {
     present: true
 };
 function donkey() {
-    console.log(person);
-    document.getElementById("name").innerHTML = person.name + " lives in " + person.city + " and is " + person.present;
+    const status = person.present ? "present" : "absent";
+    document.getElementById("name").innerHTML = person.name + " lives in " + person.city + " and is " + status + " today";
 }
