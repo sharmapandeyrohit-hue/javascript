@@ -1,6 +1,9 @@
 const person = {
-    name: "Rohit Sharma"
+    name: "Rohit Sharma",
+    city: "Butwal",
+    present: true
 };
 function donkey() {
-    document.getElementById("name").innerHTML = person.name;
+    console.log(person);
+    document.getElementById("name").innerHTML = person.name + " lives in " + person.city + " and is " + person.present;
 }
