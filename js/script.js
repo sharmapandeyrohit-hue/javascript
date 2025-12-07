@@ -4,9 +4,13 @@ const person = {
     present: true
 };
 function donkey() {
-    const status = person.present ? "present" : "absent";
+
 
     var demo = document.getElementsByClassName("name");
+    person.name = "Rohit Pandey";
+    person.city = "Dumkibas";
+    person.present = false;
+    var status = person.present ? "present" : "absent";
 
     for (var i = 0; i < demo.length; i++) {
 
