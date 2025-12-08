@@ -11,7 +11,9 @@ function donkey() {
     person.city = "Dumkibas";
     person.present = false;
     var status = person.present ? "present" : "absent";
-
+    delete person.name;
+    delete person.city;
+    delete person.present;
     for (var i = 0; i < demo.length; i++) {
 
         demo[i].innerHTML = person.name + " lives in " + person.city + " and is " + status + " today";
