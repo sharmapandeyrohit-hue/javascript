@@ -1,26 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
+    <title>JavaScript Practical Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        button {
+            margin: 5px 0;
+        }
+        .output {
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+    </style>
 </head>
-
 <body>
-    <!-- <button type="button" onclick="alert('Hello World')">Button</button>
 
-    <button type="button" onclick="donkey()">Know Me</button>
-    <p class="name">My Name is</p>
-    <p class="name">My Name is</p>
-    <p class="name">My Name is</p> -->
-    <!-- <button type="button" onclick="add(5,7)">Add</button>
-    <button type="button" onclick="sub(5,7)">Sub</button>
-    <button type="button" onclick="mul(5,7)">Mul</button>
-    <button type="button" onclick="div(5,7)">Div</button> -->
-    <button type="button" onclick="Operation(mul,5,7)">Operation</button>
-    <script src="js/script.js"></script>
+<h2>JavaScript Practical Questions</h2>
+
+<!-- 1. Current Date -->
+<h3>1. Current Date</h3>
+<button onclick="showDate()">Show Current Date</button>
+<p class="output" id="dateOutput"></p>
+
+<!-- 2. Compare Positive and Negative Values -->
+<h3>2. Compare Two Numbers</h3>
+<button onclick="compareNumbers()">Compare Numbers</button>
+<p class="output" id="compareOutput"></p>
+
+<!-- 3. Sum of Two Variables -->
+<h3>3. Sum of 10 and 15</h3>
+<button onclick="sumXY()">Sum of 10 and 15</button>
+<p class="output" id="sumOutput"></p>
+
+<!-- 4. Assign x + y to z -->
+<h3>4. Assign x + y to z</h3>
+<button onclick="assignToZ()">Assign x + y to z</button>
+<p class="output" id="zOutput"></p>
+
+<!-- 5. Change Paragraph Background Color -->
+<h3>5. Change Paragraph Background Color</h3>
+<p id="para">This is a paragraph</p>
+<button onclick="changeParaBG()">Change Background Color</button>
+
+<!-- 6. Add Table Rows -->
+<h3>6. Add Table Rows</h3>
+<table border="1" id="myTable">
+    <tr>
+        <th>Name</th>
+    </tr>
+</table>
+<button onclick="addTableRow()">Add Table Row</button>
+
+<!-- 7. List Object Properties -->
+<h3>7. List Object Properties</h3>
+<button onclick="listProperties()">Show Object Properties</button>
+<p class="output" id="propertiesOutput"></p>
+
+<!-- 8. Print Object Methods -->
+<h3>8. Print Object Methods</h3>
+<button onclick="showMethods()">Show Object Methods</button>
+<p class="output" id="methodsOutput"></p>
+
+<!-- 9. Reverse a Number -->
+<h3>9. Reverse a Number</h3>
+<button onclick="reverseNumber()">Reverse Number</button>
+<p class="output" id="reverseOutput"></p>
+
+<!-- 10. Create Variable from User Input -->
+<h3>10. Create Variable from User Input</h3>
+<button onclick="createUserVariable()">Create Variable</button>
+<p class="output" id="userVarOutput"></p>
+
+<!-- 11. Check Multiple of 3 or 7 -->
+<h3>11. Check Multiple of 3 or 7</h3>
+<button onclick="checkMultiple()">Check Multiple</button>
+<p class="output" id="multipleOutput"></p>
+
+<script>
+    // 1. Current Date
+    function showDate() {
+        let today = new Date();
+        document.getElementById("dateOutput").innerText =
+            "Current Date: " + today.toDateString();
+    }
+
+    // 2. Compare Two Numbers
+    function compareNumbers() {
+        let a = parseInt(prompt("Enter first number:"));
+        let b = parseInt(prompt("Enter second number:"));
+        let result = (a > b) ? a + " is greater" : b + " is greater";
+        document.getElementById("compareOutput").innerText = result;
+    }
+
+    // 3. Sum of Two Variables
+    function sumXY() {
+        let x = 10, y = 15;
+        let sum = x + y;
+        document.getElementById("sumOutput").innerText = "Sum: " + sum;
+    }
+
+    // 4. Assign x + y to z
+    function assignToZ() {
+        let x = 10, y = 15;
+        let z = x + y;
+        alert("Value of z: " + z);
+        document.getElementById("zOutput").innerText = "z = " + z;
+    }
+
+    // 5. Change Paragraph Background Color
+    function changeParaBG() {
+        let para = document.getElementById("para");
+        para.style.backgroundColor = "yellow";
+        para.style.color = "red";
+        para.style.padding = "10px";
+    }
+
+    // 6. Add Table Rows
+    function addTableRow() {
+        let table = document.getElementById("myTable");
+        let row = table.insertRow();
+        let cell = row.insertCell();
+        cell.innerText = "New Row";
+    }
+
+    // 7. List Object Properties
+    const student = { name: "Ram", age: 15, grade: 9 };
+    function listProperties() {
+        let props = "";
+        for (let key in student) {
+            props += key + " ";
+        }
+        document.getElementById("propertiesOutput").innerText =
+            "Properties: " + props;
+    }
+
+    // 8. Print Object Methods
+    const person = {
+        name: "Ravi",
+        greet: function () {},
+        walk: function () {}
+    };
+    function showMethods() {
+        let methods = "";
+        for (let key in person) {
+            if (typeof person[key] === "function") {
+                methods += key + " ";
+            }
+        }
+        document.getElementById("methodsOutput").innerText =
+            "Methods: " + methods;
+    }
+
+    // 9. Reverse a Number
+    function reverseNumber() {
+        let num = prompt("Enter a number to reverse:");
+        let rev = num.toString().split("").reverse().join("");
+        document.getElementById("reverseOutput").innerText =
+            "Reversed: " + rev;
+    }
+
+    // 10. Create Variable from User Input
+    function createUserVariable() {
+        let varName = prompt("Enter variable name:");
+        let value = prompt("Enter variable value:");
+        window[varName] = value;
+        document.getElementById("userVarOutput").innerText =
+            varName + " = " + window[varName];
+    }
+
+    // 11. Check Multiple of 3 or 7
+    function checkMultiple() {
+        let num = parseInt(prompt("Enter a positive number:"));
+        let result =
+            (num % 3 === 0 || num % 7 === 0)
+                ? "Yes, multiple of 3 or 7"
+                : "No, not a multiple";
+        document.getElementById("multipleOutput").innerText = result;
+    }
+</script>
+
 </body>
-
 </html>
